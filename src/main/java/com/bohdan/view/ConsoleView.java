@@ -2,6 +2,7 @@ package com.bohdan.view;
 
 import com.bohdan.Controllers.Controller;
 import com.bohdan.Controllers.ControllerImpl;
+import com.bohdan.services.Anagram;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -29,7 +30,12 @@ public class ConsoleView {
         methodsMenu.put("4", this::pressButton4);
     }
 
-    private void pressButton1() { System.out.println("button 1 selected"); }
+    private void pressButton1() {
+        System.out.println("Please enter the sentence and press Enter");
+        String inputSentence = input.nextLine();
+        Anagram anagram = new Anagram();
+        System.out.println(anagram.make(inputSentence));
+    }
 
     private void pressButton2(){
         System.out.println("button 2 selected");
@@ -44,7 +50,7 @@ public class ConsoleView {
     }
 
     public void displayMenu(){
-        System.out.println("\n2 MENU");
+        System.out.println("\n MENU");
         for (String str : menu.values()) {
             System.out.println(str);
         }
